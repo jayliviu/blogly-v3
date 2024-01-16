@@ -168,7 +168,7 @@ def tags_index():
     """Show a page with info on all tags"""
 
     tags = Tag.query.all()
-    return render_template('tags/index.html', tags=tags)
+    return render_template('/tags/index.html', tags=tags)
 
 
 @app.route('/tags/new')
@@ -176,7 +176,7 @@ def tags_new_form():
     """Show a form to create a new tag"""
 
     posts = Post.query.all()
-    return render_template('tags/new.html', posts=posts)
+    return render_template('/tags/new.html', posts=posts)
 
 
 @app.route("/tags/new", methods=["POST"])
@@ -199,7 +199,7 @@ def tags_show(tag_id):
     """Show a page with info on a specific tag"""
 
     tag = Tag.query.get_or_404(tag_id)
-    return render_template('tags/show.html', tag=tag)
+    return render_template('/tags/show.html', tag=tag)
 
 
 @app.route('/tags/<int:tag_id>/edit')
@@ -208,7 +208,7 @@ def tags_edit_form(tag_id):
 
     tag = Tag.query.get_or_404(tag_id)
     posts = Post.query.all()
-    return render_template('tags/edit.html', tag=tag, posts=posts)
+    return render_template('/tags/edit.html', tag=tag, posts=posts)
 
 
 @app.route('/tags/<int:tag_id>/edit', methods=["POST"])
